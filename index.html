@@ -4,18 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actividad Física en la Naturaleza Rural | REDA</title>
-  <!-- Tipografía estilo National Geographic (Georgia/Cinzel + Sans-serif para lectura) -->
+  
+  <!-- Tipografía estilo National Geographic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --natgeo-yellow: #ffcc00;
-      --bg-dark: #121212;
-      --text-light: #f4f4f4;
+      --bg-dark: #0f0f11;
+      --bg-card: #18181c;
+      --text-main: #f0f0f0;
       --text-muted: #a0a0a0;
-      --card-bg: #1e1e1e;
+      --border-color: #2a2a30;
     }
 
     * {
@@ -27,15 +29,43 @@
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: var(--bg-dark);
-      color: var(--text-light);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
-    /* Encabezado / Hero Section */
+    /* Navegación Fija */
+    nav {
+      background-color: #000000;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 18px 20px;
+      border-bottom: 2px solid var(--natgeo-yellow);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--natgeo-yellow);
+    }
+
+    /* Portada Principal Hero */
     header.hero {
-      height: 85vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
-                  url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 90vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(15,15,17,0.95)), 
+                  url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHBZDw2kfBf_2bcSJ_E7SRJFU6QIKXtjYPeo-oKJCCvOAB0pMNNZRhFIe79uw8XR2eAUsWpTPRpYwmH4w_jauOPWdNSaGBsCC2Kgfv2aZDm7900SJE5As_KJqla6RcX1lev22Fin78ZhIukkXwnsmQl_gzhQEK1loMXrZ-KtxfSdKN8XxooHRGQRroYd6b/s2752/Mapa_de_la_gran_aventura.png') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -44,167 +74,281 @@
       padding: 0 20px;
     }
 
+    .badge-reda {
+      background-color: var(--natgeo-yellow);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
     header.hero h1 {
       font-family: 'Cinzel', serif;
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.8rem);
       letter-spacing: 2px;
-      margin-bottom: 10px;
-      border-bottom: 4px solid var(--natgeo-yellow);
-      padding-bottom: 10px;
+      margin-bottom: 15px;
+      max-width: 1000px;
     }
 
     header.hero p {
       font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 700px;
+      max-width: 750px;
+      font-weight: 300;
     }
 
-    /* Navegación */
-    nav {
-      background-color: #000000;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      border-bottom: 1px solid #333;
-    }
-
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--natgeo-yellow);
-    }
-
-    /* Contenido Principal */
-    main.container {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
+    /* Secciones Generales */
+    section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-title {
       font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      margin-bottom: 30px;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
       color: var(--natgeo-yellow);
       text-align: center;
     }
 
-    /* Cuadrícula de Contenidos Educational Cards */
-    .grid {
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Caja de Propósito Pedagógico */
+    .purpose-card {
+      background-color: var(--bg-card);
+      border-left: 4px solid var(--natgeo-yellow);
+      padding: 35px;
+      border-radius: 4px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .purpose-card p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    /* Cuadrícula de Galería Técnica (Fotografía y Lenguaje Audiovisual) */
+    .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
     }
 
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
+    .photo-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .photo-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--natgeo-yellow);
     }
 
-    .card img {
+    .photo-card img {
       width: 100%;
-      height: 200px;
+      height: 280px;
       object-fit: cover;
+      display: block;
     }
 
-    .card-content {
+    .photo-info {
       padding: 20px;
     }
 
-    .card-content h3 {
-      font-family: 'Cinzel', serif;
-      margin-bottom: 10px;
-      font-size: 1.3rem;
+    .photo-info ul {
+      list-style: none;
+      font-size: 0.9rem;
     }
 
-    .card-content p {
+    .photo-info li {
+      margin-bottom: 8px;
+      border-bottom: 1px dashed #2a2a2a;
+      padding-bottom: 6px;
+    }
+
+    .photo-info li strong {
+      color: var(--natgeo-yellow);
+    }
+
+    .license-tag {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #222;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 3px;
     }
 
-    /* Pie de página */
+    /* Footer */
     footer {
-      text-align: center;
+      background-color: #050505;
+      border-top: 1px solid var(--border-color);
       padding: 40px 20px;
-      background-color: #080808;
-      border-top: 1px solid #222;
+      text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
+    }
+
+    footer p {
+      margin-bottom: 8px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navegación estilo editorial -->
+  <!-- Navegación Principal -->
   <nav>
     <a href="#inicio">Inicio</a>
-    <a href="#unidades">Unidades Didácticas</a>
-    <a href="#recursos">Recursos Abiertos</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#propósito">Propósito</a>
+    <a href="#galeria">Lenguaje Fotográfico</a>
+    <a href="#recursos">Mapa y Recursos</a>
   </nav>
 
-  <!-- Portada Principal NatGeo Style -->
+  <!-- Hero Section -->
   <header class="hero" id="inicio">
+    <span class="badge-reda">Recurso Educativo Digital Abierto</span>
     <h1>ACTIVIDAD FÍSICA EN LA NATURALEZA RURAL</h1>
-    <p>Recurso Educativo Digital Abierto para la cualificación del movimiento, el entorno y la vida saludable.</p>
+    <p>Cualificación del movimiento, el entorno y la reconexión ambiental en la Institución Santa María.</p>
   </header>
 
-  <!-- Área de Contenido del REDA -->
-  <main class="container" id="unidades">
-    <h2 class="section-title">Módulos de Aprendizaje</h2>
+  <!-- Propósito Pedagógico -->
+  <section id="propósito">
+    <h2 class="section-title">Propósito del REDA</h2>
+    <p class="section-subtitle">Transformación del aprendizaje a través del movimiento en el medio natural</p>
     
-    <div class="grid">
-      <!-- Tarjeta 1 -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=600&q=80" alt="Senderismo">
-        <div class="card-content">
-          <h3>1. Senderismo Pedagógico</h3>
-          <p>Exploración del entorno rural a través de rutas dirigidas, medición de esfuerzo y reconocimiento ambiental.</p>
-        </div>
-      </article>
-
-      <!-- Tarjeta 2 -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Expresión corporal">
-        <div class="card-content">
-          <h3>2. Expresión y Movimiento</h3>
-          <p>Prácticas corporales al aire libre orientadas al bienestar físico y el trabajo colaborativo en comunidades rurales.</p>
-        </div>
-      </article>
-
-      <!-- Tarjeta 3 -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="Cuidado Ambiental">
-        <div class="card-content">
-          <h3>3. Educación Ambiental</h3>
-          <p>Concientización sobre la sostenibilidad, la preservación del territorio rural y el cuidado del ecosistema.</p>
-        </div>
-      </article>
+    <div class="purpose-card">
+      <p>Este recurso busca reconectar a los estudiantes de básica primaria de la <strong>Institución Santa María</strong> con el medio ambiente a través del movimiento, integrando el bienestar físico, psicológico y ecológico.</p>
+      <p>El reto pedagógico es aprender a movernos en un terreno duro y cambiante, desconectándonos de las pantallas y de la rutina diaria. A través de la colaboración mutua cuando aparece el cansancio, demostramos que es posible disfrutar del monte respetando y preservando el entorno natural.</p>
     </div>
-  </main>
+  </section>
 
+  <!-- Galería Fotográfica Técnica -->
+  <section id="galeria">
+    <h2 class="section-title">Análisis de Lenguaje Fotográfico</h2>
+    <p class="section-subtitle">Documentación visual de las prácticas corporales en el entorno rural</p>
+
+    <div class="photo-grid">
+
+      <!-- Foto 1 -->
+      <article class="photo-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijCuxB5nyDD17RNq4QWXwbvpdKNIIHQoG7ooiMJ4T6UOwu_ZWyhJcb4oCVH4cG9USPcXgQd_GHNAzOsIW0tC22KPP18YY9qpVVzWLXgZUSniPwsyJAt0SLcnk1e_t9C-t58TssTXl8HaEAoqlGsOKoj0tMczE5c_5PN74GTASRty9mTp13uziHzCvalSf8/w385-h398/WhatsApp%20Image%202026-09-30%20at%2012.36.49%20PM.jpeg" alt="Fotografía en la naturaleza 1">
+        <div class="photo-info">
+          <ul>
+            <li><strong>Tipo de Plano:</strong> Plano Entero / Plano Medio Largo</li>
+            <li><strong>Ángulo de Cámara:</strong> Normal / Neutro</li>
+            <li><strong>Tipo de Luz:</strong> Luz Natural (Sombra rebotada y sol directo)</li>
+            <li><strong>Dirección de Luz:</strong> Lateral / Cenital</li>
+          </ul>
+          <span class="license-tag">Licencia: CC BY-NC-SA 4.0</span>
+        </div>
+      </article>
+
+      <!-- Foto 2 -->
+      <article class="photo-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiD1YKmzSs4iIdDLJWgTdP0sUEtR8WiFSE2p309dIqpHT_85b6i1dLDXsZNa2ccsQbJGNRoVBUcFEpDrzDfvXw9O6VsZJSlElY2wFtSGoNRjZNO8rilJcvmKzyQdxfvgyjzxIXN3cIbIN1oUScWkyvF0g5E-dl-D-zas5DKmJaam4twKq8oz3o6QPwx_5Sc/w403-h426/WhatsApp%20Image%202026-09-30%20at%2012.36.49%20PM%20(1).jpeg" alt="Fotografía en la naturaleza 2">
+        <div class="photo-info">
+          <ul>
+            <li><strong>Tipo de Plano:</strong> Plano Entero</li>
+            <li><strong>Ángulo de Cámara:</strong> Picado suave</li>
+            <li><strong>Tipo de Luz:</strong> Luz Natural / Luz Dura</li>
+            <li><strong>Dirección de Luz:</strong> Frontal-Lateral</li>
+          </ul>
+          <span class="license-tag">Licencia: CC BY-NC-SA 4.0</span>
+        </div>
+      </article>
+
+      <!-- Foto 3 -->
+      <article class="photo-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi56mqF3dF-OKUOvDBZCBgPIRsQvBb53w5lsrTzVH8xXtSVDhVP-1YAIpGlzNX-eruFhM7JzhuWRbKKPIy6gypTZ4XsvPhcYaYToJSFbXh-mLI4TAbyETeY73MdbnSaGNpFZuGzS0Dv-FEquOePGthcidMhPJwe1Kum2972tRTWUH56r0i9ab6Mc6jdo5Ru/w380-h386/WhatsApp%20Image%202026-09-30%20at%2012.36.48%20PM.jpeg" alt="Fotografía en la naturaleza 3">
+        <div class="photo-info">
+          <ul>
+            <li><strong>Tipo de Plano:</strong> Gran Plano General / Plano General Corto</li>
+            <li><strong>Ángulo de Cámara:</strong> Normal</li>
+            <li><strong>Tipo de Luz:</strong> Luz Natural / Luz Dura</li>
+            <li><strong>Dirección de Luz:</strong> Contraluz / Cenital</li>
+          </ul>
+          <span class="license-tag">Licencia: CC BY-NC-SA 4.0</span>
+        </div>
+      </article>
+
+      <!-- Foto 4 -->
+      <article class="photo-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe5YxmNvJI2vS8ENOb58vl1NToWxnxdYWVr44lgPFFyAYQ0h4H5fAKGy4F5vKojGr-vrbr7SRib-MzMKu0nBorugtJM2zMunZj8k318sBt1UiWizh40JSK4rhQGdLBatL2O3lmq8-S2wBJLe0KMM2nDWijkpNO7GyS0W8HjYbPZircDPY5vsGpNK0jeIlZ/w416-h441/WhatsApp%20Image%202026-09-30%20at%2012.36.48%20PM%20(3).jpeg" alt="Fotografía en la naturaleza 4">
+        <div class="photo-info">
+          <ul>
+            <li><strong>Tipo de Plano:</strong> Plano Entero</li>
+            <li><strong>Ángulo de Cámara:</strong> Normal</li>
+            <li><strong>Tipo de Luz:</strong> Luz Natural / Luz Dura</li>
+            <li><strong>Dirección de Luz:</strong> Cenital-Frontal</li>
+          </ul>
+          <span class="license-tag">Licencia: CC BY-NC-SA 4.0</span>
+        </div>
+      </article>
+
+      <!-- Foto 5 -->
+      <article class="photo-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5Or9KPb9LKyXmHb-YatXBizsitpTHA15T8mKMMn9Zj1E8mqPl32QQ5RBXnRSqmaHLB105anOBluTV264nIJoqbeaN9SQvfuupqFGKwnB40GMkhtV2rAUYKU9i_OuSD5vRhvFdRU5O2xzwCnQ-ioTRH4Uq5phh9zABVGIX_kLTj2WsPw5eGtSGFPH7ILnZ/w416-h398/WhatsApp%20Image%202026-09-30%20at%2012.36.48%20PM%20(2).jpeg" alt="Fotografía en la naturaleza 5">
+        <div class="photo-info">
+          <ul>
+            <li><strong>Tipo de Plano:</strong> Plano Entero</li>
+            <li><strong>Ángulo de Cámara:</strong> Ligeramente Contrapicado</li>
+            <li><strong>Tipo de Luz:</strong> Luz Natural / Luz Dura</li>
+            <li><strong>Dirección de Luz:</strong> Lateral-Contraluz</li>
+          </ul>
+          <span class="license-tag">Licencia: CC BY-NC-SA 4.0</span>
+        </div>
+      </article>
+
+      <!-- Foto 6 -->
+      <article class="photo-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh89SvlX54pjmpRPu4IbJHGFbMckhfKmtzMaw0YuZZHeSsna-S_bvBR7AhcI0yMj4kviR8Ogz9QbUKudyPclGoCUJLMIoELePkVLk9PTRnAJwzJcKY-XlR31HwQb-4reLnZAuPM6fW97MkcbClUOfleIhG4NPTHu4UYBYA_7IjTDnnCu2CL17VuAHsTfk0K/w410-h407/WhatsApp%20Image%202026-09-30%20at%2012.36.48%20PM%20(1).jpeg" alt="Fotografía en la naturaleza 6">
+        <div class="photo-info">
+          <ul>
+            <li><strong>Tipo de Plano:</strong> Plano Americano / Plano Medio Largo</li>
+            <li><strong>Ángulo de Cámara:</strong> Normal / Neutro</li>
+            <li><strong>Tipo de Luz:</strong> Luz Natural de Sol directo / Luz Dura</li>
+            <li><strong>Dirección de Luz:</strong> Cenital-Lateral</li>
+          </ul>
+          <span class="license-tag">Licencia: CC BY-NC-SA 4.0</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Mapa y Recursos Complementarios -->
+  <section id="recursos">
+    <h2 class="section-title">Mapa de la Gran Aventura</h2>
+    <p class="section-subtitle">Recursos gráficos e infografías educativas complementarias</p>
+    
+    <div style="text-align: center;">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHBZDw2kfBf_2bcSJ_E7SRJFU6QIKXtjYPeo-oKJCCvOAB0pMNNZRhFIe79uw8XR2eAUsWpTPRpYwmH4w_jauOPWdNSaGBsCC2Kgfv2aZDm7900SJE5As_KJqla6RcX1lev22Fin78ZhIukkXwnsmQl_gzhQEK1loMXrZ-KtxfSdKN8XxooHRGQRroYd6b/s2752/Mapa_de_la_gran_aventura.png" alt="Mapa de la Gran Aventura" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid var(--natgeo-yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.7);">
+      <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">Ilustración didáctica creada con NOTEBOOK para la ruta del proyecto.</p>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
   <footer>
-    <p>Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</p>
-    <p>Trabajo de Pregrado en Educación y Medios Educativos</p>
+    <p><strong>Recurso Educativo Digital Abierto (REDA)</strong></p>
+    <p>Trabajo de Pregrado en Educación y Medios Educativos | Institución Santa María</p>
+    <p>Licenciado bajo Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</p>
   </footer>
 
 </body>
