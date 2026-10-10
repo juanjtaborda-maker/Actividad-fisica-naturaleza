@@ -41,6 +41,7 @@
       z-index: 100;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       padding: 18px 20px;
       border-bottom: 2px solid var(--natgeo-yellow);
       box-shadow: 0 4px 20px rgba(0,0,0,0.8);
@@ -49,7 +50,7 @@
     nav a {
       color: var(--text-main);
       text-decoration: none;
-      margin: 0 18px;
+      margin: 5px 18px;
       font-weight: 600;
       text-transform: uppercase;
       font-size: 0.85rem;
@@ -140,7 +141,29 @@
       margin-bottom: 15px;
     }
 
-    /* Cuadrícula de Galería Técnica (Fotografía y Lenguaje Audiovisual) */
+    /* Reproductor de Audio */
+    .audio-player-box {
+      margin-top: 25px;
+      padding: 20px;
+      background: #111115;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .audio-player-box h4 {
+      color: var(--natgeo-yellow);
+      margin-bottom: 10px;
+      font-family: 'Cinzel', serif;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 10px;
+    }
+
+    /* Cuadrícula de Galería Técnica (Fotografía) */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -196,6 +219,75 @@
       border-radius: 3px;
     }
 
+    /* Galería de Actividades e Infografías */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .media-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .media-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    .media-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .source-link {
+      color: var(--natgeo-yellow);
+      text-decoration: none;
+      font-size: 0.85rem;
+      word-break: break-all;
+    }
+
+    .source-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contenedor de Vídeo Responsive */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      border-radius: 8px;
+      border: 2px solid var(--natgeo-yellow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      margin-top: 20px;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #141418;
+      color: var(--text-muted);
+      padding: 20px;
+      text-align: center;
+    }
+
     /* Footer */
     footer {
       background-color: #050505;
@@ -216,9 +308,11 @@
   <!-- Navegación Principal -->
   <nav>
     <a href="#inicio">Inicio</a>
-    <a href="#propósito">Propósito</a>
+    <a href="#proposito">Propósito</a>
     <a href="#galeria">Lenguaje Fotográfico</a>
-    <a href="#recursos">Mapa y Recursos</a>
+    <a href="#actividades">Actividades e Infografías</a>
+    <a href="#video">Vídeo Didáctico</a>
+    <a href="#recursos">Mapa del Proyecto</a>
   </nav>
 
   <!-- Hero Section -->
@@ -228,14 +322,25 @@
     <p>Cualificación del movimiento, el entorno y la reconexión ambiental en la Institución Santa María.</p>
   </header>
 
-  <!-- Propósito Pedagógico -->
-  <section id="propósito">
+  <!-- Propósito Pedagógico y Audio -->
+  <section id="proposito">
     <h2 class="section-title">Propósito del REDA</h2>
     <p class="section-subtitle">Transformación del aprendizaje a través del movimiento en el medio natural</p>
     
     <div class="purpose-card">
       <p>Este recurso busca reconectar a los estudiantes de básica primaria de la <strong>Institución Santa María</strong> con el medio ambiente a través del movimiento, integrando el bienestar físico, psicológico y ecológico.</p>
-      <p>El reto pedagógico es aprender a movernos en un terreno duro y cambiante, desconectándonos de las pantallas y de la rutina diaria. A través de la colaboración mutua cuando aparece el cansancio, demostramos que es posible disfrutar del monte respetando y preservando el entorno natural.</p>
+      <p>Buscar transformar la forma en que los estudiantes se relacionen consigo mismos, con los demás y con el entorno de la naturaleza.</p>
+      <p>El reto es desconectarnos de las pantallas y de la rutina para volver a encontrarnos con la naturaleza y con nuestro propio cuerpo, aprendiendo a movernos en un terreno duro y cambiante, ayudándonos entre todos cuando pega el cansancio y demostrando que podemos disfrutar del monte sin dañarlo.</p>
+
+      <!-- Audio de audio-narración -->
+      <div class="audio-player-box">
+        <h4>Escuchar Audio de Presentación</h4>
+        <p style="font-size: 0.9rem; color: #a0a0a0;">Reflexión sobre la desconexión digital y el encuentro con el entorno natural</p>
+        <audio controls>
+          <source src="" type="audio/mpeg">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </div>
     </div>
   </section>
 
@@ -330,6 +435,46 @@
         </div>
       </article>
 
+    </div>
+  </section>
+
+  <!-- Actividades e Infografías Adicionales -->
+  <section id="actividades">
+    <h2 class="section-title">Actividades e Infografías Didácticas</h2>
+    <p class="section-subtitle">Recursos ilustrativos del movimiento y beneficios del deporte natural</p>
+
+    <div class="media-grid">
+      
+      <!-- Imagen Ejercicio NOTEBOOK -->
+      <article class="media-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhln5XsbcM1TbpO7tiUqDJHmqS7hG6fXci3Ajo5-8wsrlZVqGUB_MPU5W7YTFOZFOA3l4cPKOob0CrJc4ck78tvU-AOHGH6hdPbQM-Dgip7sfL3rrN2e1T18qdPBTENwSZZn5F37NoFxuidCreZQOt0HMWE13FXvsVyfrUtPnw_dKvbCr4WCRcrHL-z6tsN/w430-h485/ejercicio_naturaleza_messi_v2.png" alt="Ejercicio en la Naturaleza">
+        <h3>Práctica de Ejercicio Corporal</h3>
+        <p style="margin-top: 8px;">Ilustración didáctica generada para el módulo de movimiento al aire libre.</p>
+        <span class="license-tag">Creado por: NOTEBOOK</span>
+      </article>
+
+      <!-- Infografía Beneficios -->
+      <article class="media-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWtJpm-plPlcxaaOAu4cvRqOR08SQhQsgPlc-Yq4UgafBtFfesAVju7wELaNDb6LqhkVarGR-5pvC6hcq6AkBvo4MopFbFqyd7-Vdkj7u7qJ38kwEl9KRioquXqGam1J84XtiV5MA3zYUJct4qrthyWn3ADC1XX7z4btsX2XBe3_QCTvGb04wIgbLW-elr/w400-h377/Beneficios-del-deporte-en-el-medio-natural.webp" alt="Beneficios del deporte en el medio natural">
+        <h3>Beneficios del Deporte en el Medio Natural</h3>
+        <p style="margin-top: 8px; margin-bottom: 8px;">Infografía sobre salud física y bienestar ecológico.</p>
+        <p><a href="https://tirolinavalledetena.com/beneficios-deporte-en-la-naturaleza/" target="_blank" class="source-link">Fuente: Tirolina Valle de Tena</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Vídeo Didáctico -->
+  <section id="video">
+    <h2 class="section-title">Vídeo Didáctico del Proyecto</h2>
+    <p class="section-subtitle">Producción audiovisual del trabajo de campo en el entorno rural</p>
+
+    <div class="video-container">
+      <div class="video-placeholder">
+        <h3 style="color: var(--natgeo-yellow); font-family: 'Cinzel', serif; margin-bottom: 10px;">Vídeo Promocional / Didáctico</h3>
+        <p>Vídeo interactivo creado por NOTEBOOK para el REDA.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #777;">(Si cuentas con el enlace directo en MP4 o YouTube, se puede incrustar directamente aquí).</p>
+      </div>
     </div>
   </section>
 
