@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad Física en la Naturaleza Rural | REDA</title>
+  <!-- Tipografía estilo National Geographic (Georgia/Cinzel + Sans-serif para lectura) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --natgeo-yellow: #ffcc00;
+      --bg-dark: #121212;
+      --text-light: #f4f4f4;
+      --text-muted: #a0a0a0;
+      --card-bg: #1e1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Encabezado / Hero Section */
+    header.hero {
+      height: 85vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                  url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    header.hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      border-bottom: 4px solid var(--natgeo-yellow);
+      padding-bottom: 10px;
+    }
+
+    header.hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+
+    /* Navegación */
+    nav {
+      background-color: #000000;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--natgeo-yellow);
+    }
+
+    /* Contenido Principal */
+    main.container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--natgeo-yellow);
+      text-align: center;
+    }
+
+    /* Cuadrícula de Contenidos Educational Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      font-family: 'Cinzel', serif;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .card-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Pie de página */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #080808;
+      border-top: 1px solid #222;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación estilo editorial -->
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#unidades">Unidades Didácticas</a>
+    <a href="#recursos">Recursos Abiertos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <!-- Portada Principal NatGeo Style -->
+  <header class="hero" id="inicio">
+    <h1>ACTIVIDAD FÍSICA EN LA NATURALEZA RURAL</h1>
+    <p>Recurso Educativo Digital Abierto para la cualificación del movimiento, el entorno y la vida saludable.</p>
+  </header>
+
+  <!-- Área de Contenido del REDA -->
+  <main class="container" id="unidades">
+    <h2 class="section-title">Módulos de Aprendizaje</h2>
+    
+    <div class="grid">
+      <!-- Tarjeta 1 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=600&q=80" alt="Senderismo">
+        <div class="card-content">
+          <h3>1. Senderismo Pedagógico</h3>
+          <p>Exploración del entorno rural a través de rutas dirigidas, medición de esfuerzo y reconocimiento ambiental.</p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Expresión corporal">
+        <div class="card-content">
+          <h3>2. Expresión y Movimiento</h3>
+          <p>Prácticas corporales al aire libre orientadas al bienestar físico y el trabajo colaborativo en comunidades rurales.</p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="Cuidado Ambiental">
+        <div class="card-content">
+          <h3>3. Educación Ambiental</h3>
+          <p>Concientización sobre la sostenibilidad, la preservación del territorio rural y el cuidado del ecosistema.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</p>
+    <p>Trabajo de Pregrado en Educación y Medios Educativos</p>
+  </footer>
+
+</body>
+</html>
