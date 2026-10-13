@@ -333,7 +333,7 @@
       text-decoration: underline;
     }
 
-    /* Contenedor del Vídeo e Iframe */
+    /* Contenedor del Vídeo HTML5 Local */
     .video-box {
       background-color: var(--bg-card);
       border: 2px solid var(--natgeo-yellow);
@@ -345,22 +345,12 @@
       text-align: center;
     }
 
-    .video-responsive {
-      position: relative;
-      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 6px;
-      background-color: #000;
-    }
-
-    .video-responsive iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .video-box video {
       width: 100%;
-      height: 100%;
-      border: 0;
+      max-height: 480px;
+      border-radius: 6px;
+      background: #000;
+      outline: none;
     }
 
     .video-box p {
@@ -587,16 +577,16 @@
     </div>
   </section>
 
-  <!-- Vídeo Didáctico del Proyecto (Iframe Integrado) -->
+  <!-- Vídeo Didáctico Local en GitHub -->
   <section id="video">
     <h2 class="section-title" data-aos="fade-up">Vídeo Didáctico del Proyecto</h2>
     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Producción audiovisual del trabajo de campo en el entorno rural</p>
 
     <div class="video-box" data-aos="zoom-in" data-aos-delay="200">
-      <div class="video-responsive">
-        <!-- Código iframe incrustado correctamente -->
-        <iframe src="https://www.blogger.googleusercontent.com/video.g?token=0a1bccf3d784d9f9" allowfullscreen></iframe>
-      </div>
+      <video controls poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhln5XsbcM1TbpO7tiUqDJHmqS7hG6fXci3Ajo5-8wsrlZVqGUB_MPU5W7YTFOZFOA3l4cPKOob0CrJc4ck78tvU-AOHGH6hdPbQM-Dgip7sfL3rrN2e1T18qdPBTENwSZZn5F37NoFxuidCreZQOt0HMWE13FXvsVyfrUtPnw_dKvbCr4WCRcrHL-z6tsN/w430-h485/ejercicio_naturaleza_messi_v2.png">
+        <source src="videoplayback.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de vídeo HTML5.
+      </video>
       <p><strong>Vídeo Interactivo:</strong> Prácticas corporales en el medio natural (Creado con NOTEBOOK).</p>
     </div>
   </section>
