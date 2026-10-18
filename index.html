@@ -342,16 +342,30 @@ word-break: break-all;
 text-decoration: underline;
 }
 
-/* Reproductor de Vídeo de Google Drive (Responsive 16:9) */
+/* Reproductores de Vídeos (Contenedor Grid) */
+.videos-wrapper {
+display: flex;
+flex-direction: column;
+gap: 30px;
+max-width: 850px;
+margin: 20px auto 0 auto;
+}
+
 .video-box {
 background-color: var(--bg-card);
 border: 2px solid var(--natgeo-yellow);
 border-radius: 8px;
 padding: 15px;
 box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-max-width: 850px;
-margin: 20px auto 0 auto;
 text-align: center;
+}
+
+.video-box video {
+width: 100%;
+max-height: 480px;
+border-radius: 6px;
+background: #000;
+outline: none;
 }
 
 .video-drive-container {
@@ -595,16 +609,30 @@ margin-bottom: 8px;
 </div>
 </section>
 
-<!-- Vídeo Didáctico Completo desde Google Drive (5 minutos) -->
+<!-- Seccion de Videos Didácticos (Ambos Incluidos) -->
 <section id="video">
-<h2 class="section-title" data-aos="fade-up">Vídeo Didáctico del Proyecto</h2>
-<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Producción audiovisual del trabajo de campo en el entorno rural</p>
+<h2 class="section-title" data-aos="fade-up">Vídeos Didácticos del Proyecto</h2>
+<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Producción audiovisual y trabajo de campo en el entorno rural</p>
 
+<div class="videos-wrapper">
+
+<!-- Vídeo 1: Promocional / Interactivo (NOTEBOOK) -->
 <div class="video-box" data-aos="zoom-in" data-aos-delay="200">
+<video controls poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhln5XsbcM1TbpO7tiUqDJHmqS7hG6fXci3Ajo5-8wsrlZVqGUB_MPU5W7YTFOZFOA3l4cPKOob0CrJc4ck78tvU-AOHGH6hdPbQM-Dgip7sfL3rrN2e1T18qdPBTENwSZZn5F37NoFxuidCreZQOt0HMWE13FXvsVyfrUtPnw_dKvbCr4WCRcrHL-z6tsN/w430-h485/ejercicio_naturaleza_messi_v2.png">
+<source src="videoplayback.mp4" type="video/mp4">
+Tu navegador no soporta la reproducción de vídeo HTML5.
+</video>
+<p><strong>Vídeo Interactivo:</strong> Prácticas corporales en el medio natural (Creado con NOTEBOOK).</p>
+</div>
+
+<!-- Vídeo 2: Documental Completo (Google Drive) -->
+<div class="video-box" data-aos="zoom-in" data-aos-delay="300">
 <div class="video-drive-container">
 <iframe src="https://drive.google.com/file/d/1p7Ucu3rqE35RVJyJNsxMKeVtWkV3U8mx/preview" allow="autoplay"></iframe>
 </div>
-<p><strong>Documental / Vídeo Interactivo:</strong> Prácticas corporales en el medio natural.</p>
+<p><strong>Documental / Registro de Campo:</strong> Experiencia práctica de 5 minutos en el entorno rural.</p>
+</div>
+
 </div>
 </section>
 
